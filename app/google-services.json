@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "97408134667",
+    "firebase_url": "https://bts-medical-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "bts-medical",
+    "storage_bucket": "bts-medical.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:97408134667:android:e5dff372daf5d30c83610e",
+        "android_client_info": {
+          "package_name": "com.example.medidoc_bts_h3"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "97408134667-k8m7uo2r5oa7k36mfb95gtb3rav6cjpc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAANrJqCj0L2E5l9E657OAhBkOijsMESC0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "97408134667-k8m7uo2r5oa7k36mfb95gtb3rav6cjpc.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
