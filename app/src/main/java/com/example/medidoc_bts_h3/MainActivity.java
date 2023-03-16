@@ -1,41 +1,57 @@
 package com.example.medidoc_bts_h3;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 
+import com.example.medidoc_bts_h3.databinding.ActivityMainBinding;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
 public class MainActivity extends AppCompatActivity {
 
-    Button btnLogout;
     FirebaseAuth auth;
+
+    ActivityMainBinding binding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        binding = ActivityMainBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
 
-        btnLogout = findViewById(R.id.btnLogout);
-        auth = FirebaseAuth.getInstance();
+        replaceFragment(new HomeFragment());
 
-        btnLogout.setOnClickListener(view ->{
-            auth.signOut();
-            startActivity(new Intent(MainActivity.this, LoginActivity.class));
+
+        binding.bottomNavigationView.setOnItemReselectedListener( item -> {
+            switch (item.getItemId()){
+                case R.id.home:
+                    replaceFragment(new HomeFragment());
+                    break;
+                case R.id.profile:
+                    replaceFragment(new ProfileFragment());
+                    break;
+                case R.id.setting:
+                    replaceFragment(new SettingsFragment());
+                    break;
+            }
         });
     }
 
     @Override
     protected void onStart() {
         super.onStart();
+    }
 
-        FirebaseUser user = auth.getCurrentUser();
-
-        if (user == null) {
-            startActivity(new Intent(MainActivity.this, LoginActivity.class));
-        }
+    private void replaceFragment(Fragment fragment){
+        FragmentManager fragmentManager =  getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.frame_layout, fragment);
+        fragmentTransaction.commit();
     }
 }
