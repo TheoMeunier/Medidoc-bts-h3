@@ -67,7 +67,7 @@ public class RegisterActivity extends AppCompatActivity {
         String lastName = inputLastName.getText().toString();
         String phone = inputPhone.getText().toString();
         String email = inputEmail.getText().toString();
-        Boolean isDoctor = inputIsDoctor.isSelected();
+        Boolean isDoctor = inputIsDoctor.isChecked();
         String password = inputPassword.getText().toString();
 
         if (TextUtils.isEmpty(email)) {
