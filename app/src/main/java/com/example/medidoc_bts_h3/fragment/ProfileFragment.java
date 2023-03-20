@@ -1,21 +1,35 @@
 package com.example.medidoc_bts_h3.fragment;
 
+import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
+import android.provider.ContactsContract;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.TextView;
+import android.widget.Toast;
 
+import com.example.medidoc_bts_h3.LoginActivity;
 import com.example.medidoc_bts_h3.R;
+import com.example.medidoc_bts_h3.ResetPasswordActivity;
+import com.example.medidoc_bts_h3.serivces.HttpClient;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
 
 /**
  * A simple {@link Fragment} subclass.
  * Use the {@link ProfileFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class ProfileFragment extends Fragment {
+public class  ProfileFragment extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -26,9 +40,9 @@ public class ProfileFragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    public ProfileFragment() {
-        // Required empty public constructor
-    }
+
+    Button profileBtnLogout;
+    TextView lastName, firstName, email, phone;
 
     /**
      * Use this factory method to create a new instance of
@@ -60,7 +74,70 @@ public class ProfileFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_profile, container, false);
+       View view =  inflater.inflate(R.layout.fragment_profile, container, false);
+
+        profileBtnLogout = view.findViewById(R.id.profileBtnLogout);
+        lastName = view.findViewById(R.id.profileLastName);
+        firstName = view.findViewById(R.id.profileFirstName);
+        email = view.findViewById(R.id.profileEmail);
+        phone = view.findViewById(R.id.profilePhone);
+
+        getUser();
+
+        profileBtnLogout.setOnClickListener(view1 -> {
+            logout();
+        });
+
+       return view;
+    }
+
+    public void logout() {
+        String url = getString(R.string.url_api) + "/auth/logout";
+
+        new Thread(() -> {
+            HttpClient httpClient = new  HttpClient(getActivity(), url);
+            httpClient.setMethod("post");
+            httpClient.setToken(true);
+            httpClient.send();
+
+            getActivity().runOnUiThread(() -> {
+                Integer code = httpClient.getStatusCode();
+
+                if (code == 200) {
+                    startActivity(new Intent(getActivity(), LoginActivity.class));
+                    getActivity().finish();
+                }
+
+            });
+        }).start();
+    }
+
+    @SuppressLint("SetTextI18n")
+    public void getUser() {
+        String url = getString(R.string.url_api) + "/profile";
+
+        new Thread(() -> {
+            HttpClient httpClient = new HttpClient(getActivity(), url);
+            httpClient.setToken(true);
+            httpClient.send();
+
+            getActivity().runOnUiThread(() -> {
+                Integer code = httpClient.getStatusCode();
+
+                if (code == 200) {
+                    try {
+                        JSONObject response = new JSONObject(httpClient.getResponse());
+                        String json = response.getString("data");
+
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                }
+                else {
+                    Toast.makeText(getActivity(), "Error" + code, Toast.LENGTH_SHORT).show();
+                }
+            });
+
+        }).start();
     }
 }
