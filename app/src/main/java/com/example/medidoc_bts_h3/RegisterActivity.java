@@ -13,12 +13,17 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.medidoc_bts_h3.models.User;
+import com.example.medidoc_bts_h3.serivces.HttpClient;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.api.Http;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 public class RegisterActivity extends AppCompatActivity {
 
@@ -30,10 +35,6 @@ public class RegisterActivity extends AppCompatActivity {
     EditText inputPhone;
     CheckBox inputIsDoctor;
     EditText inputPassword;
-
-    FirebaseAuth mAuth;
-    FirebaseDatabase mDatabase;
-    DatabaseReference databaseReference;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,10 +49,6 @@ public class RegisterActivity extends AppCompatActivity {
         inputEmail = findViewById(R.id.email);
         inputIsDoctor = findViewById(R.id.isDoctor);
         inputPassword = findViewById(R.id.password);
-
-        mAuth = FirebaseAuth.getInstance();
-        mDatabase = FirebaseDatabase.getInstance();
-        databaseReference = mDatabase.getReference("users");
 
         btnRegister.setOnClickListener(view -> {
             createUser();
@@ -86,30 +83,58 @@ public class RegisterActivity extends AppCompatActivity {
             inputPassword.setError("Password cannot be empty");
             inputPassword.requestFocus();
         } else {
-            mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                @Override
-                public void onComplete(@NonNull Task<AuthResult> task) {
-                    if (task.isSuccessful()) {
-                        userInformation(firstName, lastName, phone, isDoctor);
-
-                        Toast.makeText(RegisterActivity.this, "User registered successfully", Toast.LENGTH_SHORT).show();
-                        startActivity(new Intent(RegisterActivity.this, LoginActivity.class));
-                    } else {
-                        Toast.makeText(RegisterActivity.this, "Registration Error" + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
-                    }
-                }
-            });
+            sendRegister(firstName, lastName, email, phone, isDoctor, password);
         }
     }
 
+    private void sendRegister(String firstName, String lastName, String email, String phone, Boolean isDoctor, String password) {
+        JSONObject params = new JSONObject();
 
+        try {
+            params.put("last_name", lastName);
+            params.put("first_name", firstName);
+            params.put("email", email);
+            params.put("phone", phone);
+            params.put("is_doctor", isDoctor);
+            params.put("password", password);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
 
-    public void userInformation(String firstName, String lastName, String phone, Boolean isDoctor)
-    {
-        // Récupérer l'utilisateur connecté
-        String userId = mAuth.getCurrentUser().getUid();
+        String data = params.toString();
+        String url = getString(R.string.url_api) + "/auth/register";
 
-        User user = new User(firstName, lastName, phone, isDoctor);
-        databaseReference.child(userId).setValue(user);
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                HttpClient http = new HttpClient(RegisterActivity.this, url);
+                http.setMethod("post");
+                http.setData(data);
+                http.send();
+
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        Integer code = http.getStatusCode();
+
+                        if (code == 201 || code == 200) {
+                            Toast.makeText(RegisterActivity.this, "User logged in successfully", Toast.LENGTH_SHORT).show();
+                            startActivity(new Intent(RegisterActivity.this, LoginActivity.class));
+                        } else if (code == 422) {
+                            try {
+                                JSONObject response = new JSONObject(http.getResponse());
+                                String msg = response.getString("message");
+
+                                Toast.makeText(RegisterActivity.this, msg, Toast.LENGTH_SHORT).show();
+                            } catch (JSONException e) {
+                                e.printStackTrace();
+                            }
+                        } else {
+                            Toast.makeText(RegisterActivity.this, "Error", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
+            }
+        }).start();
     }
 }
