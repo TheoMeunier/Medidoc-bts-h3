@@ -9,13 +9,14 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.medidoc_bts_h3.R;
+import com.example.medidoc_bts_h3.models.Doctor;
 import com.example.medidoc_bts_h3.models.User;
 
 import java.util.ArrayList;
 
 public class DoctorAdapter extends RecyclerView.Adapter<DoctorAdapter.ViewHolder> {
 
-    private final ArrayList<User> listDataSet;
+    private final ArrayList<Doctor> listDataSet;
 
     /**
      * Provide a reference to the type of views that you are using
@@ -35,8 +36,8 @@ public class DoctorAdapter extends RecyclerView.Adapter<DoctorAdapter.ViewHolder
         }
     }
 
-    public DoctorAdapter(ArrayList<User> users) {
-        this.listDataSet =  users;
+    public DoctorAdapter(ArrayList<Doctor> doctors) {
+        this.listDataSet =  doctors;
     }
 
 
@@ -52,7 +53,7 @@ public class DoctorAdapter extends RecyclerView.Adapter<DoctorAdapter.ViewHolder
 
     @Override
     public void onBindViewHolder(@NonNull DoctorAdapter.ViewHolder holder, int position) {
-         //holder.getItem_home_title().setText(this.listDataSet);
+         //holder.getItem_home_title().setText(listDataSet.);
     }
 
     @Override
