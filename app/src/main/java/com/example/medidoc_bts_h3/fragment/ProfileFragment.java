@@ -19,6 +19,7 @@ import com.example.medidoc_bts_h3.R;
 import com.example.medidoc_bts_h3.ResetPasswordActivity;
 import com.example.medidoc_bts_h3.serivces.HttpClient;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -127,7 +128,17 @@ public class  ProfileFragment extends Fragment {
                 if (code == 200) {
                     try {
                         JSONObject response = new JSONObject(httpClient.getResponse());
-                        String json = response.getString("data");
+                        JSONArray array = new JSONArray(response.getString("data"));
+
+                        String response_last_name = array.getJSONObject(0).getString("first_name");
+                        String response_first_name = array.getJSONObject(0).getString("last_name");
+                        String response_email = array.getJSONObject(0).getString("email");
+                        String response_phone = array.getJSONObject(0).getString("phone");
+
+                        lastName.setText("Nom: " + response_last_name);
+                        firstName.setText("Prenom: " + response_first_name);
+                        email.setText("Email: " + response_email);
+                        phone.setText("Phone: " + response_phone);
 
                     } catch (JSONException e) {
                         e.printStackTrace();
@@ -137,7 +148,6 @@ public class  ProfileFragment extends Fragment {
                     Toast.makeText(getActivity(), "Error" + code, Toast.LENGTH_SHORT).show();
                 }
             });
-
         }).start();
     }
 }

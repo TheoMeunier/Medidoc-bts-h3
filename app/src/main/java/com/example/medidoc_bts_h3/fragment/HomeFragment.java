@@ -2,36 +2,24 @@ package com.example.medidoc_bts_h3.fragment;
 
 import android.os.Bundle;
 
-import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
-import com.example.medidoc_bts_h3.MainActivity;
 import com.example.medidoc_bts_h3.R;
 import com.example.medidoc_bts_h3.adapter.DoctorAdapter;
 import com.example.medidoc_bts_h3.models.Doctor;
-import com.example.medidoc_bts_h3.models.User;
 import com.example.medidoc_bts_h3.serivces.HttpClient;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
-import java.util.EventListener;
-
-import io.grpc.internal.JsonParser;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -50,6 +38,8 @@ public class HomeFragment extends Fragment {
     private String mParam2;
 
     RecyclerView doctorFragment;
+
+    ArrayList<Doctor> Doctors = new ArrayList<>();
 
     /**
      * Use this factory method to create a new instance of
@@ -82,17 +72,12 @@ public class HomeFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_home, container, false);
 
-        ArrayList<Doctor> doctors = getDoctor();
-
-        doctorFragment = view.findViewById(R.id.home_list_doctor);
-        doctorFragment.setAdapter(new DoctorAdapter(doctors));
+        getDoctor(view);
 
         return view;
     }
 
-    public ArrayList<Doctor> getDoctor()
-    {
-        ArrayList<Doctor> doctors = new ArrayList<>();
+    public void getDoctor(View view) {
 
         String url = getString(R.string.url_api) + "/doctors";
 
@@ -117,11 +102,14 @@ public class HomeFragment extends Fragment {
                             doctor.setId(object.getInt("id"));
                             doctor.setName(object.getString("name"));
 
-                            doctors.add(doctor);
+                            Doctors.add(doctor);
                         }
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
+
+                    doctorFragment = view.findViewById(R.id.home_list_doctor);
+                    doctorFragment.setAdapter(new DoctorAdapter(Doctors));
                 } else {
                     Toast.makeText(getActivity(), "Error", Toast.LENGTH_SHORT).show();
                 }
@@ -130,12 +118,5 @@ public class HomeFragment extends Fragment {
         });
 
         t.start();
-        try {
-            t.join();
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
-
-        return doctors;
     }
 }

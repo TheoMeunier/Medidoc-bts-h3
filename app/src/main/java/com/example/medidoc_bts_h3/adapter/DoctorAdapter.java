@@ -53,7 +53,7 @@ public class DoctorAdapter extends RecyclerView.Adapter<DoctorAdapter.ViewHolder
 
     @Override
     public void onBindViewHolder(@NonNull DoctorAdapter.ViewHolder holder, int position) {
-         //holder.getItem_home_title().setText(listDataSet.);
+         holder.getItem_home_title().setText(listDataSet.get(position).name);
     }
 
     @Override
