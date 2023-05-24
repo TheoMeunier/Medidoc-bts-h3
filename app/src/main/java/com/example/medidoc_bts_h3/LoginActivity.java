@@ -10,7 +10,11 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.util.Log;
+import org.json.JSONException;
+import org.json.JSONObject;
 
+import com.example.medidoc_bts_h3.DoctorHomeActivity;
 import com.example.medidoc_bts_h3.serivces.HttpClient;
 import com.example.medidoc_bts_h3.serivces.LocalStorage;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -99,7 +103,20 @@ public class LoginActivity extends AppCompatActivity {
                                     JSONObject response = new JSONObject(http.getResponse());
                                     String token = response.getString("token");
                                     localStorage.setToken(token);
-                                    startActivity(new Intent(LoginActivity.this, MainActivity.class));
+                                    String is_doctor_n = response.getString("is_doctor");
+                                    //System.out.println(response);
+
+                                    Intent intent = new Intent();
+                                    if (is_doctor_n.equals("0")){
+                                        // mainactivity
+                                        intent.setClass(LoginActivity.this,MainActivity.class);
+                                    }else{
+                                        // doctor
+                                        intent.setClass(LoginActivity.this,DoctorHomeActivity.class);
+                                    }
+
+                                    startActivity(intent);
+
                                 } catch (JSONException e) {
                                     e.printStackTrace();
                                 }
