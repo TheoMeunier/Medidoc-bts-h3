@@ -14,7 +14,9 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.medidoc_bts_h3.EditProfileUserActivity;
 import com.example.medidoc_bts_h3.LoginActivity;
+import com.example.medidoc_bts_h3.MainActivity;
 import com.example.medidoc_bts_h3.R;
 import com.example.medidoc_bts_h3.ResetPasswordActivity;
 import com.example.medidoc_bts_h3.serivces.HttpClient;
@@ -43,6 +45,7 @@ public class  ProfileFragment extends Fragment {
 
 
     Button profileBtnLogout;
+    Button btnEditProfile;
     TextView lastName, firstName, email, phone;
 
     /**
@@ -76,17 +79,24 @@ public class  ProfileFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
        View view =  inflater.inflate(R.layout.fragment_profile, container, false);
-
         profileBtnLogout = view.findViewById(R.id.profileBtnLogout);
         lastName = view.findViewById(R.id.profileLastName);
         firstName = view.findViewById(R.id.profileFirstName);
         email = view.findViewById(R.id.profileEmail);
         phone = view.findViewById(R.id.profilePhone);
+        btnEditProfile = view.findViewById(R.id.btnEditProfile);
 
         getUser();
 
         profileBtnLogout.setOnClickListener(view1 -> {
             logout();
+        });
+
+        btnEditProfile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getActivity(), EditProfileUserActivity.class));
+            }
         });
 
        return view;

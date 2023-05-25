@@ -36,6 +36,10 @@ public class HttpClient {
         this.token = token;
     }
 
+    public void setRequestBody(String requestBody) {
+        this.data = requestBody;
+    }
+
     public String getResponse() {
         return response;
     }
