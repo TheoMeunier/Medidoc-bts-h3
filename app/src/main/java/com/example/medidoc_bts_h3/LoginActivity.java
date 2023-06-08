@@ -32,7 +32,6 @@ public class LoginActivity extends AppCompatActivity {
 
     Button btnLogin;
     TextView btnRegister;
-    TextView btnResetPassword;
     EditText inputEmail;
     EditText inputPassword;
 
@@ -47,7 +46,6 @@ public class LoginActivity extends AppCompatActivity {
         inputPassword = findViewById(R.id.password);
         btnLogin = findViewById(R.id.btnLogin);
         btnRegister = findViewById(R.id.goToSignup);
-        btnResetPassword = findViewById(R.id.btnResetPassword);
 
         localStorage = new LocalStorage(LoginActivity.this);
 
@@ -57,10 +55,6 @@ public class LoginActivity extends AppCompatActivity {
 
         btnRegister.setOnClickListener(view -> {
             startActivity(new Intent(LoginActivity.this, RegisterActivity.class));
-        });
-
-        btnResetPassword.setOnClickListener(view -> {
-            startActivity(new Intent(LoginActivity.this, ResetPasswordActivity.class));
         });
     }
 
@@ -103,19 +97,7 @@ public class LoginActivity extends AppCompatActivity {
                                     JSONObject response = new JSONObject(http.getResponse());
                                     String token = response.getString("token");
                                     localStorage.setToken(token);
-                                    String is_doctor_n = response.getString("is_doctor");
-                                    //System.out.println(response);
-
-                                    Intent intent = new Intent();
-                                    if (is_doctor_n.equals("0")){
-                                        // mainactivity
-                                        intent.setClass(LoginActivity.this,MainActivity.class);
-                                    }else{
-                                        // doctor
-                                        intent.setClass(LoginActivity.this,DoctorHomeActivity.class);
-                                    }
-
-                                    startActivity(intent);
+                                    startActivity(new Intent(LoginActivity.this, MainActivity.class));
 
                                 } catch (JSONException e) {
                                     e.printStackTrace();
