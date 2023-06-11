@@ -5,18 +5,14 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
-import android.content.Intent;
 import android.os.Bundle;
 
 import com.example.medidoc_bts_h3.databinding.ActivityMainBinding;
+import com.example.medidoc_bts_h3.fragment.AppointmentFragment;
 import com.example.medidoc_bts_h3.fragment.HomeFragment;
 import com.example.medidoc_bts_h3.fragment.ProfileFragment;
-import com.example.medidoc_bts_h3.fragment.SettingsFragment;
-import com.google.firebase.auth.FirebaseAuth;
 
 public class MainActivity extends AppCompatActivity {
-
-    FirebaseAuth auth;
 
     ActivityMainBinding binding;
 
@@ -34,11 +30,11 @@ public class MainActivity extends AppCompatActivity {
                 case R.id.home:
                     replaceFragment(new HomeFragment());
                     break;
+                case R.id.appointment:
+                    replaceFragment(new AppointmentFragment());
+                    break;
                 case R.id.profile:
                     replaceFragment(new ProfileFragment());
-                    break;
-                case R.id.setting:
-                    replaceFragment(new SettingsFragment());
                     break;
             }
         });

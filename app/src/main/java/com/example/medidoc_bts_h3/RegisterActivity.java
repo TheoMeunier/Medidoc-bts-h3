@@ -32,7 +32,6 @@ public class RegisterActivity extends AppCompatActivity {
     EditText inputEmail;
     EditText inputLastName;
     EditText inputFirstName;
-    EditText inputPhone;
     CheckBox inputIsDoctor;
     EditText inputPassword;
 
@@ -45,7 +44,6 @@ public class RegisterActivity extends AppCompatActivity {
         btnLogin = findViewById(R.id.goToLogin);
         inputLastName = findViewById(R.id.lastName);
         inputFirstName = findViewById(R.id.firstName);
-        inputPhone = findViewById(R.id.phone);
         inputEmail = findViewById(R.id.email);
         inputIsDoctor = findViewById(R.id.isDoctor);
         inputPassword = findViewById(R.id.password);
@@ -62,7 +60,6 @@ public class RegisterActivity extends AppCompatActivity {
     private void createUser() {
         String firstName = inputFirstName.getText().toString();
         String lastName = inputLastName.getText().toString();
-        String phone = inputPhone.getText().toString();
         String email = inputEmail.getText().toString();
         Boolean isDoctor = inputIsDoctor.isChecked();
         String password = inputPassword.getText().toString();
@@ -76,25 +73,21 @@ public class RegisterActivity extends AppCompatActivity {
         } else if (TextUtils.isEmpty(lastName)) {
             inputPassword.setError("Last Name cannot be empty");
             inputPassword.requestFocus();
-        } else if (TextUtils.isEmpty(phone)) {
-            inputPassword.setError("Phone cannot be empty");
-            inputPassword.requestFocus();
         } else if (TextUtils.isEmpty(password)) {
             inputPassword.setError("Password cannot be empty");
             inputPassword.requestFocus();
         } else {
-            sendRegister(firstName, lastName, email, phone, isDoctor, password);
+            sendRegister(firstName, lastName, email, isDoctor, password);
         }
     }
 
-    private void sendRegister(String firstName, String lastName, String email, String phone, Boolean isDoctor, String password) {
+    private void sendRegister(String firstName, String lastName, String email, Boolean isDoctor, String password) {
         JSONObject params = new JSONObject();
 
         try {
             params.put("last_name", lastName);
             params.put("first_name", firstName);
             params.put("email", email);
-            params.put("phone", phone);
             params.put("is_doctor", isDoctor);
             params.put("password", password);
         } catch (JSONException e) {

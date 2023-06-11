@@ -43,10 +43,8 @@ public class  ProfileFragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
+    TextView profile, email, phone, password;
 
-    Button profileBtnLogout;
-    Button btnEditProfile;
-    TextView lastName, firstName, email, phone;
 
     /**
      * Use this factory method to create a new instance of
@@ -78,26 +76,14 @@ public class  ProfileFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
        View view =  inflater.inflate(R.layout.fragment_profile, container, false);
-        profileBtnLogout = view.findViewById(R.id.profileBtnLogout);
-        lastName = view.findViewById(R.id.profileLastName);
-        firstName = view.findViewById(R.id.profileFirstName);
-        email = view.findViewById(R.id.profileEmail);
-        phone = view.findViewById(R.id.profilePhone);
-        btnEditProfile = view.findViewById(R.id.btnEditProfile);
+        profile = view.findViewById(R.id.profile);
+        email = view.findViewById(R.id.profile_email);
+        phone = view.findViewById(R.id.profile_phone);
+        password = view.findViewById(R.id.profile_password);
 
         getUser();
-
-        profileBtnLogout.setOnClickListener(view1 -> {
-            logout();
-        });
-
-        btnEditProfile.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(getActivity(), EditProfileUserActivity.class));
-            }
-        });
 
        return view;
     }
@@ -145,10 +131,10 @@ public class  ProfileFragment extends Fragment {
                         String response_email = array.getJSONObject(0).getString("email");
                         String response_phone = array.getJSONObject(0).getString("phone");
 
-                        lastName.setText("Nom: " + response_last_name);
-                        firstName.setText("Prenom: " + response_first_name);
-                        email.setText("Email: " + response_email);
-                        phone.setText("Phone: " + response_phone);
+                        profile.setText(response_first_name + " " + response_last_name);
+                        email.setText(response_email);
+                        phone.setText(response_phone);
+                        password.setText("********");
 
                     } catch (JSONException e) {
                         e.printStackTrace();
