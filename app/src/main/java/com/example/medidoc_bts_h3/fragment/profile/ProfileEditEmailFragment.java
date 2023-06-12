@@ -1,4 +1,4 @@
-package com.example.medidoc_bts_h3.fragment;
+package com.example.medidoc_bts_h3.fragment.profile;
 
 import android.os.Bundle;
 
@@ -12,10 +12,10 @@ import com.example.medidoc_bts_h3.R;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link AppointmentFragment#newInstance} factory method to
+ * Use the {@link ProfileEditEmailFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class AppointmentFragment extends Fragment {
+public class ProfileEditEmailFragment extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -26,7 +26,7 @@ public class AppointmentFragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    public AppointmentFragment() {
+    public ProfileEditEmailFragment() {
         // Required empty public constructor
     }
 
@@ -36,11 +36,11 @@ public class AppointmentFragment extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment AppointmentFragment.
+     * @return A new instance of fragment ProfileEditEmailFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static AppointmentFragment newInstance(String param1, String param2) {
-        AppointmentFragment fragment = new AppointmentFragment();
+    public static ProfileEditEmailFragment newInstance(String param1, String param2) {
+        ProfileEditEmailFragment fragment = new ProfileEditEmailFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -61,6 +61,6 @@ public class AppointmentFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_appointment, container, false);
+        return inflater.inflate(R.layout.fragment_profile_edit_email, container, false);
     }
 }

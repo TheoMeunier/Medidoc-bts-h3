@@ -1,4 +1,4 @@
-package com.example.medidoc_bts_h3.fragment;
+package com.example.medidoc_bts_h3.fragment.profile;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
@@ -6,26 +6,19 @@ import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
-import android.provider.ContactsContract;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.medidoc_bts_h3.EditProfileUserActivity;
 import com.example.medidoc_bts_h3.LoginActivity;
-import com.example.medidoc_bts_h3.MainActivity;
 import com.example.medidoc_bts_h3.R;
-import com.example.medidoc_bts_h3.ResetPasswordActivity;
 import com.example.medidoc_bts_h3.serivces.HttpClient;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-
-import java.util.ArrayList;
 
 /**
  * A simple {@link Fragment} subclass.
