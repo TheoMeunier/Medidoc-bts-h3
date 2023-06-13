@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 
+import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
@@ -14,6 +15,7 @@ import android.widget.Toast;
 
 import com.example.medidoc_bts_h3.LoginActivity;
 import com.example.medidoc_bts_h3.R;
+import com.example.medidoc_bts_h3.RegisterActivity;
 import com.example.medidoc_bts_h3.serivces.HttpClient;
 
 import org.json.JSONArray;
@@ -37,6 +39,7 @@ public class  ProfileFragment extends Fragment {
     private String mParam2;
 
     TextView profile, email, phone, password;
+    CardView logout;
 
 
     /**
@@ -75,6 +78,24 @@ public class  ProfileFragment extends Fragment {
         email = view.findViewById(R.id.profile_email);
         phone = view.findViewById(R.id.profile_phone);
         password = view.findViewById(R.id.profile_password);
+        logout = view.findViewById(R.id.profile_logout);
+
+        CardView logout = view.findViewById(R.id.profile_logout);
+        CardView deleteCount = view.findViewById(R.id.profile_delete_count);
+
+        logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                logout();
+            }
+        });
+
+        deleteCount.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                deleteCount();
+            }
+        });
 
         getUser();
 
@@ -95,6 +116,27 @@ public class  ProfileFragment extends Fragment {
 
                 if (code == 200) {
                     startActivity(new Intent(getActivity(), LoginActivity.class));
+                    getActivity().finish();
+                }
+
+            });
+        }).start();
+    }
+
+    public void deleteCount() {
+        String url = getString(R.string.url_api) + "/profile/delete";
+
+        new Thread(() -> {
+            HttpClient httpClient = new  HttpClient(getActivity(), url);
+            httpClient.setMethod("post");
+            httpClient.setToken(true);
+            httpClient.send();
+
+            getActivity().runOnUiThread(() -> {
+                Integer code = httpClient.getStatusCode();
+
+                if (code == 200) {
+                    startActivity(new Intent(getActivity(), RegisterActivity.class));
                     getActivity().finish();
                 }
 
