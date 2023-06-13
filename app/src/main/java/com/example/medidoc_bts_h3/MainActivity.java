@@ -7,6 +7,7 @@ import androidx.fragment.app.FragmentTransaction;
 
 import android.os.Bundle;
 
+import com.example.medidoc_bts_h3.databinding.ActivityMainBinding;
 import com.example.medidoc_bts_h3.fragment.appointement.AppointmentFragment;
 import com.example.medidoc_bts_h3.fragment.HomeFragment;
 import com.example.medidoc_bts_h3.fragment.profile.ProfileFragment;
