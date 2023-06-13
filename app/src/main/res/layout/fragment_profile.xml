@@ -17,88 +17,93 @@
         android:textSize="30dp"
         android:textStyle="bold" />
 
-    <androidx.cardview.widget.CardView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp">
 
-        <LinearLayout
+        <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="start"
-            android:orientation="horizontal">
-
-            <ImageView
-                android:id="@+id/change_identite"
-                android:layout_width="35dp"
-                android:layout_height="35dp"
-                android:layout_constraintStart_toEndOf="parent"
-                android:layout_constraintStart_toStartOf="parent"
-                android:layout_gravity="center"
-                android:src="@drawable/baseline_person_24"
-                app:tint="@color/purple_500"
-                tools:layout_editor_absoluteY="42dp" />
+            android:layout_marginBottom="20dp">
 
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="start"
-                android:layout_marginLeft="15dp"
-                android:orientation="vertical"
-                android:paddingVertical="5dp"
-                android:paddingRight="208dp">
+                android:orientation="horizontal">
 
-                <TextView
+                <ImageView
+                    android:id="@+id/change_identite"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_constraintStart_toEndOf="parent"
+                    android:layout_constraintStart_toStartOf="parent"
+                    android:layout_gravity="center"
+                    android:src="@drawable/baseline_person_24"
+                    app:tint="@color/purple_500"
+                    tools:layout_editor_absoluteY="42dp" />
+
+                <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Identité"
-                    android:textSize="17dp" />
+                    android:layout_gravity="start"
+                    android:layout_marginLeft="15dp"
+                    android:orientation="vertical"
+                    android:paddingVertical="5dp"
+                    android:paddingRight="208dp">
 
-                <TextView
-                    android:id="@+id/profile"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Mon Profile"
-                    android:textSize="15dp"
-                    android:textStyle="bold" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Identité"
+                        android:textSize="17dp" />
+
+                    <TextView
+                        android:id="@+id/profile"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Mon Profile"
+                        android:textSize="15dp"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/baseline_chevron_right_24" />
 
             </LinearLayout>
+        </androidx.cardview.widget.CardView>
+    </LinearLayout>
 
-            <ImageView
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_gravity="center"
-                android:src="@drawable/baseline_chevron_right_24" />
-
-        </LinearLayout>
-    </androidx.cardview.widget.CardView>
-
-
-    <androidx.cardview.widget.CardView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
         android:gravity="start"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:paddingTop="20dp">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Connexion"
             android:textSize="19dp"
-            android:textStyle="bold"/>
+            android:textStyle="bold" />
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="422dp"
+            android:layout_height="wrap_content"
             android:layout_gravity="start"
-            android:layout_marginTop="10dp"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:paddingVertical="20dp">
 
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="25dp">
+                android:layout_marginBottom="10dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -156,7 +161,7 @@
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp">
+                android:layout_marginBottom="10dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -213,7 +218,7 @@
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp">
+                android:layout_marginBottom="10dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -266,125 +271,124 @@
 
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
-
-            <androidx.cardview.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:gravity="start"
-                android:orientation="vertical">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Action"
-                android:textSize="19dp"
-                android:textStyle="bold"
-                android:layout_marginTop="10dp"/>
-
-            <androidx.cardview.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="30dp">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="start"
-                    android:orientation="horizontal"
-                    android:paddingVertical="10dp"
-                    >
-
-                    <ImageView
-                        android:id="@+id/deletecompte"
-                        android:layout_width="35dp"
-                        android:layout_height="35dp"
-                        android:layout_constraintStart_toEndOf="parent"
-                        android:layout_constraintStart_toStartOf="parent"
-                        android:layout_gravity="center"
-                        android:src="@drawable/baseline_delete_24"
-                        app:tint="@color/red"
-                        tools:layout_editor_absoluteY="42dp" />
-
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="start"
-                        android:layout_marginLeft="15dp"
-                        android:orientation="vertical"
-                        android:paddingVertical="5dp"
-                        android:paddingRight="100dp">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Supprimer mon compte"
-                            android:textColor="@color/red"
-                            android:textSize="17dp"
-                            android:textStyle="bold" />
-
-                    </LinearLayout>
-
-                    <ImageView
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
-                        android:layout_gravity="center"
-                        android:src="@drawable/baseline_chevron_right_24"
-                        app:tint="@color/red" />
-
-                </LinearLayout>
-            </androidx.cardview.widget.CardView>
-            <androidx.cardview.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="30dp">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="start"
-                    android:orientation="horizontal"
-                    android:paddingVertical="10dp"
-                    android:layout_marginTop="-15dp">
-
-                    <ImageView
-                        android:id="@+id/deletecompte"
-                        android:layout_width="35dp"
-                        android:layout_height="35dp"
-                        android:layout_constraintStart_toEndOf="parent"
-                        android:layout_constraintStart_toStartOf="parent"
-                        android:layout_gravity="center"
-                        android:src="@drawable/baseline_logout_24"
-                        app:tint="@color/purple_500"
-                        tools:layout_editor_absoluteY="42dp" />
-
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="start"
-                        android:layout_marginLeft="15dp"
-                        android:orientation="vertical"
-                        android:paddingVertical="5dp"
-                        android:paddingRight="180dp">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Déconnexion"
-                            android:textSize="17dp"
-                            android:textStyle="bold" />
-
-                    </LinearLayout>
-
-                    <ImageView
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
-                        android:layout_gravity="center"
-                        android:src="@drawable/baseline_chevron_right_24"
-                         />
-
-                </LinearLayout>
-            </androidx.cardview.widget.CardView>
         </LinearLayout>
-    </androidx.cardview.widget.CardView>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="start"
+        android:orientation="vertical"
+        android:paddingTop="10dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Action"
+            android:textSize="19dp"
+            android:textStyle="bold" />
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:orientation="horizontal"
+                android:paddingVertical="10dp">
+
+                <ImageView
+                    android:id="@+id/profile_delete_count"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_constraintStart_toEndOf="parent"
+                    android:layout_constraintStart_toStartOf="parent"
+                    android:layout_gravity="center"
+                    android:paddingLeft="2dp"
+                    android:src="@drawable/baseline_delete_24"
+                    app:tint="@color/red"
+                    tools:layout_editor_absoluteY="42dp" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="start"
+                    android:layout_marginLeft="15dp"
+                    android:orientation="vertical"
+                    android:paddingVertical="5dp"
+                    android:paddingRight="150dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Supprimer le compte"
+                        android:textColor="@color/red"
+                        android:textSize="15dp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/baseline_chevron_right_24"
+                    app:tint="@color/red" />
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:orientation="horizontal"
+                android:paddingVertical="10dp">
+
+                <ImageView
+                    android:id="@+id/profile_logout"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_constraintStart_toEndOf="parent"
+                    android:layout_constraintStart_toStartOf="parent"
+                    android:layout_gravity="center"
+                    android:paddingLeft="2dp"
+                    android:src="@drawable/baseline_logout_24"
+                    app:tint="@color/purple_500"
+                    tools:layout_editor_absoluteY="42dp" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="start"
+                    android:layout_marginLeft="15dp"
+                    android:orientation="vertical"
+                    android:paddingVertical="5dp"
+                    android:paddingRight="185dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Se Deconnecter"
+                        android:textSize="15dp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/baseline_chevron_right_24" />
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+    </LinearLayout>
 </LinearLayout>
