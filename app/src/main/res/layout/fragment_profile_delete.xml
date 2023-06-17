@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragment.profile.ProfileEditPhoneFragment">
+    tools:context=".fragment.profile.ProfileDeleteFragment">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -14,30 +14,24 @@
         tools:layout_editor_absoluteY="0dp"
         tools:ignore="MissingConstraints,UselessParent">
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/profile_edit_phone"
-            android:layout_width="match_parent"
+        <TextView
+            android:id="@+id/goToSignup"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:hint="Phone"
-            tools:ignore="MissingConstraints">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/input_porfile_phone"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="textEmailAddress"
-                android:text="" />
-
-        </com.google.android.material.textfield.TextInputLayout>
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:textSize="20dp"
+            android:gravity="center"
+            android:text="Voulez-vous vraiment supprimer votre compte ?" />
 
         <Button
-            android:id="@+id/btn_profile_edit_phone"
+            android:id="@+id/btn_profile_delete"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="10dp"
-            android:text="Modifier Phone"
+            android:text="Supprimer mon compte"
             tools:ignore="MissingConstraints" />
-
     </LinearLayout>
+
 </FrameLayout>

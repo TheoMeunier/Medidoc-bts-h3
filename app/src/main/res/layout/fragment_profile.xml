@@ -43,13 +43,14 @@
                     tools:layout_editor_absoluteY="42dp" />
 
                 <LinearLayout
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="start"
-                    android:layout_marginLeft="15dp"
+                    android:layout_marginStart="15dp"
+                    android:layout_weight="1"
                     android:orientation="vertical"
                     android:paddingVertical="5dp"
-                    android:paddingRight="208dp">
+                    android:paddingEnd="16dp">
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -114,19 +115,21 @@
                         android:layout_width="30dp"
                         android:layout_height="30dp"
                         android:layout_gravity="center"
-                        android:paddingLeft="2dp"
+                        android:paddingStart="2dp"
                         android:src="@drawable/baseline_phone_24"
                         app:tint="@color/purple_500"
-                        tools:layout_editor_absoluteY="42dp" />
+                        tools:layout_editor_absoluteY="42dp"
+                        android:importantForAccessibility="no" />
 
                     <LinearLayout
-                        android:layout_width="wrap_content"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="start"
-                        android:layout_marginLeft="15dp"
+                        android:layout_marginStart="15dp"
+                        android:layout_weight="1"
                         android:orientation="vertical"
                         android:paddingVertical="5dp"
-                        android:paddingRight="215dp">
+                        android:paddingEnd="16dp">
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -146,6 +149,7 @@
                     </LinearLayout>
 
                     <ImageView
+                        android:id="@+id/btn_profile_edit_phone"
                         android:layout_width="30dp"
                         android:layout_height="30dp"
                         android:layout_gravity="center"
@@ -175,13 +179,14 @@
                         tools:layout_editor_absoluteY="42dp" />
 
                     <LinearLayout
-                        android:layout_width="wrap_content"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="start"
-                        android:layout_marginLeft="15dp"
+                        android:layout_marginStart="15dp"
+                        android:layout_weight="1"
                         android:orientation="vertical"
                         android:paddingVertical="5dp"
-                        android:paddingRight="125dp">
+                        android:paddingEnd="16dp">
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -202,6 +207,7 @@
                     </LinearLayout>
 
                     <ImageView
+                        android:id="@+id/btn_profile_edit_email"
                         android:layout_width="30dp"
                         android:layout_height="30dp"
                         android:layout_gravity="center"
@@ -233,13 +239,14 @@
                         tools:layout_editor_absoluteY="42dp" />
 
                     <LinearLayout
-                        android:layout_width="wrap_content"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="start"
-                        android:layout_marginLeft="15dp"
+                        android:layout_marginStart="15dp"
+                        android:layout_weight="1"
                         android:orientation="vertical"
                         android:paddingVertical="5dp"
-                        android:paddingRight="220dp">
+                        android:paddingEnd="16dp">
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -259,6 +266,7 @@
                     </LinearLayout>
 
                     <ImageView
+                        android:id="@+id/btn_profile_edit_password"
                         android:layout_width="30dp"
                         android:layout_height="30dp"
                         android:layout_gravity="center"
@@ -306,13 +314,14 @@
                     tools:layout_editor_absoluteY="42dp" />
 
                 <LinearLayout
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="start"
-                    android:layout_marginLeft="15dp"
+                    android:layout_marginStart="15dp"
+                    android:layout_weight="1"
                     android:orientation="vertical"
                     android:paddingVertical="5dp"
-                    android:paddingRight="150dp">
+                    android:paddingEnd="16dp">
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -356,13 +365,14 @@
                     tools:layout_editor_absoluteY="42dp" />
 
                 <LinearLayout
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="start"
-                    android:layout_marginLeft="15dp"
+                    android:layout_marginStart="15dp"
+                    android:layout_weight="1"
                     android:orientation="vertical"
                     android:paddingVertical="5dp"
-                    android:paddingRight="185dp">
+                    android:paddingEnd="16dp">
 
                     <TextView
                         android:layout_width="wrap_content"

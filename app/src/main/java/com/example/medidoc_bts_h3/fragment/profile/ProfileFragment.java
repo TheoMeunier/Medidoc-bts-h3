@@ -22,6 +22,8 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.Objects;
+
 /**
  * A simple {@link Fragment} subclass.
  * Use the {@link ProfileFragment#newInstance} factory method to
@@ -29,44 +31,18 @@ import org.json.JSONObject;
  */
 public class  ProfileFragment extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
-
     TextView profile, email, phone, password;
     CardView logout;
 
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment ProfileFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static ProfileFragment newInstance(String param1, String param2) {
-        ProfileFragment fragment = new ProfileFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
+   // TODO: Rename and change types and number of parameters
+    public static ProfileFragment newInstance() {
+        return new ProfileFragment();
     }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
     }
 
     @Override
@@ -83,6 +59,30 @@ public class  ProfileFragment extends Fragment {
         CardView logout = view.findViewById(R.id.profile_logout);
         CardView deleteCount = view.findViewById(R.id.profile_delete_count);
 
+        view.findViewById(R.id.btn_profile_edit_phone).setOnClickListener(new  View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ProfileEditPhoneFragment editPhoneFragment = new ProfileEditPhoneFragment(phone.getText().toString());
+                editPhoneFragment.show(getActivity().getSupportFragmentManager(), "btnProfileEditPhone");
+            }
+        });
+
+        view.findViewById(R.id.btn_profile_edit_email).setOnClickListener(new  View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ProfileEditEmailFragment editEmailFragment = new ProfileEditEmailFragment(email.getText().toString());
+                editEmailFragment.show(getActivity().getSupportFragmentManager(), "btnProfileEditEMail");
+            }
+        });
+
+        view.findViewById(R.id.btn_profile_edit_password).setOnClickListener(new  View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ProfileEditPasswordFragment editEmailFragment = new ProfileEditPasswordFragment();
+                editEmailFragment.show(getActivity().getSupportFragmentManager(), "btnProfileEditPassword");
+            }
+        });
+
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -93,7 +93,8 @@ public class  ProfileFragment extends Fragment {
         deleteCount.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                deleteCount();
+                ProfileDeleteFragment profileDeleteFragment = new ProfileDeleteFragment();
+                profileDeleteFragment.show(getActivity().getSupportFragmentManager(), "btnProfileDelete");
             }
         });
 
@@ -116,27 +117,6 @@ public class  ProfileFragment extends Fragment {
 
                 if (code == 200) {
                     startActivity(new Intent(getActivity(), LoginActivity.class));
-                    getActivity().finish();
-                }
-
-            });
-        }).start();
-    }
-
-    public void deleteCount() {
-        String url = getString(R.string.url_api) + "/profile/delete";
-
-        new Thread(() -> {
-            HttpClient httpClient = new  HttpClient(getActivity(), url);
-            httpClient.setMethod("post");
-            httpClient.setToken(true);
-            httpClient.send();
-
-            getActivity().runOnUiThread(() -> {
-                Integer code = httpClient.getStatusCode();
-
-                if (code == 200) {
-                    startActivity(new Intent(getActivity(), RegisterActivity.class));
                     getActivity().finish();
                 }
 
