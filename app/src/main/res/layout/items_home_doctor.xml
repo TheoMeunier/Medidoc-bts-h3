@@ -37,6 +37,7 @@
 
         </LinearLayout>
 
+
         <!-- Buttons -->
         <LinearLayout
             android:layout_width="wrap_content"
@@ -58,4 +59,6 @@
                 android:text="Ajouter mon médecin" />
         </LinearLayout>
     </LinearLayout>
+
 </com.google.android.material.card.MaterialCardView>
+

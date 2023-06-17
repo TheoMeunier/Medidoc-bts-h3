@@ -181,7 +181,7 @@
                         android:layout_marginLeft="15dp"
                         android:orientation="vertical"
                         android:paddingVertical="5dp"
-                        android:paddingRight="248dp">
+                        android:paddingRight="125dp">
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -192,8 +192,9 @@
 
                         <TextView
                             android:id="@+id/profile_email"
-                            android:layout_width="wrap_content"
+                            android:layout_width="162dp"
                             android:layout_height="wrap_content"
+                            android:maxLines="1"
                             android:paddingTop="3dp"
                             android:text="email"
                             android:textSize="15dp" />
@@ -204,7 +205,9 @@
                         android:layout_width="30dp"
                         android:layout_height="30dp"
                         android:layout_gravity="center"
-                        android:src="@drawable/baseline_chevron_right_24" />
+                        android:src="@drawable/baseline_chevron_right_24"
+
+                        />
 
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
