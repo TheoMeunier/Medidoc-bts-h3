@@ -3,6 +3,7 @@ package com.example.medidoc_bts_h3.fragment.appointement;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,8 +11,8 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.example.medidoc_bts_h3.R;
+import com.example.medidoc_bts_h3.adapter.appointment.AppointementFuturAdapter;
 import com.example.medidoc_bts_h3.models.AppointementFuture;
-import com.example.medidoc_bts_h3.models.Doctor;
 import com.example.medidoc_bts_h3.serivces.HttpClient;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -27,6 +28,7 @@ import java.util.List;
 public class AppointementFutureFragment extends Fragment {
 
     ArrayList<AppointementFuture> AppointementFuture = new ArrayList<>();
+    RecyclerView appontementFuturFragement;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -68,8 +70,8 @@ public class AppointementFutureFragment extends Fragment {
                         e.printStackTrace();
                     }
 
-                    //doctorFragment = view.findViewById(R.id.home_list_doctor);
-                    //doctorFragment.setAdapter(new DoctorAdapter(Doctors));
+                    appontementFuturFragement = view.findViewById(R.id.recyclerViewRdv);
+                    appontementFuturFragement.setAdapter(new AppointementFuturAdapter(AppointementFuture));
                 } else {
                     Toast.makeText(getActivity(), "Error", Toast.LENGTH_SHORT).show();
                 }

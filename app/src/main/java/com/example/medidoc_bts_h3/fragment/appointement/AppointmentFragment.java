@@ -1,5 +1,6 @@
 package com.example.medidoc_bts_h3.fragment.appointement;
 
+import android.icu.lang.UScript;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,6 +13,7 @@ import com.example.medidoc_bts_h3.R;
 import com.example.medidoc_bts_h3.adapter.appointment.ViewPagerAdapter;
 import com.google.android.material.tabs.TabLayout;
 
+import java.io.Console;
 import java.util.Objects;
 
 public class AppointmentFragment extends Fragment {
@@ -35,19 +37,24 @@ public class AppointmentFragment extends Fragment {
         viewpager = view.findViewById(R.id.viewpager);
         viewPagerAdapter = new ViewPagerAdapter(this.requireActivity());
 
+        System.out.println("hello");
         tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
                 viewpager.setCurrentItem(tab.getPosition());
+                System.out.println(tab);
+                System.out.println("hello1");
             }
 
             @Override
             public void onTabUnselected(TabLayout.Tab tab) {
-
+                System.out.println("hello2");
             }
 
             @Override
             public void onTabReselected(TabLayout.Tab tab) {
+                System.out.println("hello3");
             }
 
         });
