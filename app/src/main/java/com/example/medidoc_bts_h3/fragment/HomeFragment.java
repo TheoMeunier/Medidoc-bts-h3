@@ -95,21 +95,13 @@ public class HomeFragment extends Fragment {
 
                         JSONArray array = new JSONArray(response.getString("data"));
 
-                        for (int i = 0; i < array.length(); i++){
-                            JSONObject object = new JSONObject(array.getString(i));
-
-                            Doctor doctor = new Doctor();
-                            doctor.setId(object.getInt("id"));
-                            doctor.setName(object.getString("name"));
-
-                            Doctors.add(doctor);
-                        }
+                        for (int i = 0; i < array.length(); i++){}
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
 
-                    doctorFragment = view.findViewById(R.id.home_list_doctor);
-                    doctorFragment.setAdapter(new DoctorAdapter(Doctors));
+                    //doctorFragment = view.findViewById(R.id.home_list_doctor);
+                    //doctorFragment.setAdapter(new DoctorAdapter(Doctors));
                 } else {
                     Toast.makeText(getActivity(), "Error", Toast.LENGTH_SHORT).show();
                 }

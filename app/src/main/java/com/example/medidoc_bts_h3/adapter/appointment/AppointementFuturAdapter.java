@@ -1,4 +1,4 @@
-package com.example.medidoc_bts_h3.adapter;
+package com.example.medidoc_bts_h3.adapter.appointment;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,14 +9,14 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.medidoc_bts_h3.R;
+import com.example.medidoc_bts_h3.models.AppointementFuture;
 import com.example.medidoc_bts_h3.models.Doctor;
-import com.example.medidoc_bts_h3.models.User;
 
 import java.util.ArrayList;
 
-public class DoctorAdapter extends RecyclerView.Adapter<DoctorAdapter.ViewHolder> {
+public class AppointementFuturAdapter extends RecyclerView.Adapter<AppointementFuturAdapter.ViewHolder> {
 
-    private final ArrayList<Doctor> listDataSet;
+    private final ArrayList<AppointementFuture> listDataSet;
 
     /**
      * Provide a reference to the type of views that you are using
@@ -36,14 +36,14 @@ public class DoctorAdapter extends RecyclerView.Adapter<DoctorAdapter.ViewHolder
         }
     }
 
-    public DoctorAdapter(ArrayList<Doctor> doctors) {
-        this.listDataSet =  doctors;
+    public AppointementFuturAdapter(ArrayList<AppointementFuture> futures) {
+        this.listDataSet =  futures;
     }
 
 
     @NonNull
     @Override
-    public DoctorAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
         View view = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.items_home_doctor, parent, false);
@@ -52,7 +52,7 @@ public class DoctorAdapter extends RecyclerView.Adapter<DoctorAdapter.ViewHolder
     }
 
     @Override
-    public void onBindViewHolder(@NonNull DoctorAdapter.ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
          //holder.getItem_home_title().setText(listDataSet.get(position).name);
         //holder.getItem_home_title().setText(listDataSet.get(position).name());
     }
