@@ -62,8 +62,9 @@
                         android:id="@+id/profile"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Mon Profile"
+                        android:text="theo meunier"
                         android:textSize="15dp"
+                        android:maxLines="1"
                         android:textStyle="bold" />
 
                 </LinearLayout>
