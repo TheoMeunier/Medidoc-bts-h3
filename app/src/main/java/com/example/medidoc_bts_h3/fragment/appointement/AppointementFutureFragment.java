@@ -3,6 +3,7 @@ package com.example.medidoc_bts_h3.fragment.appointement;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
@@ -28,7 +29,6 @@ import java.util.List;
 public class AppointementFutureFragment extends Fragment {
 
     ArrayList<AppointementFuture> AppointementFuture = new ArrayList<>();
-    //RecyclerView appointmentFutureFragment;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -38,12 +38,10 @@ public class AppointementFutureFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
         View view = inflater.inflate(R.layout.fragment_appointement_future, container, false);
 
-        //getAllAssignmentFuture(view);
-
-        RecyclerView appointmentFutureFragment = view.findViewById(R.id.recyclerViewRdvFuture);
-        appointmentFutureFragment.setAdapter(new AppointementFuturAdapter());
+        getAllAssignmentFuture(view);
 
         return view;
     }
@@ -73,8 +71,10 @@ public class AppointementFutureFragment extends Fragment {
                         e.printStackTrace();
                     }
 
-                    //appointmentFutureFragment = view.findViewById(R.id.recyclerViewRdv);
-                    //appointmentFutureFragment.setAdapter(new AppointementFuturAdapter(AppointementFuture));
+                    RecyclerView appointmentFutureFragment = view.findViewById(R.id.recyclerViewRdvFuture);
+                    AppointementFuturAdapter adapter = new AppointementFuturAdapter(getActivity() , AppointementFuture);
+                    appointmentFutureFragment.setLayoutManager(new LinearLayoutManager(getActivity()));
+                    appointmentFutureFragment.setAdapter(adapter);
                 } else {
                     Toast.makeText(getActivity(), "Error", Toast.LENGTH_SHORT).show();
                 }

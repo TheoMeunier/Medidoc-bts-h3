@@ -9,36 +9,36 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.medidoc_bts_h3.R;
-import com.example.medidoc_bts_h3.models.Doctor;
-import com.example.medidoc_bts_h3.models.User;
-
-import java.util.ArrayList;
 
 public class DoctorAdapter extends RecyclerView.Adapter<DoctorAdapter.ViewHolder> {
 
-    private final ArrayList<Doctor> listDataSet;
+    //private final ArrayList<Doctor> listDataSet;
 
-    /**
-     * Provide a reference to the type of views that you are using
-     * (custom ViewHolder)
-     */
     public static class ViewHolder extends RecyclerView.ViewHolder {
-        private final TextView item_home_title;
+        private final TextView item_doctor_name, item_doctor_spec, item_doctor_city;
 
         public ViewHolder(View view) {
             super(view);
 
-            item_home_title = (TextView) view.findViewById(R.id.card_medical_doctor_name);
+            item_doctor_name = (TextView) view.findViewById(R.id.item_doctor_name);
+            item_doctor_spec = (TextView) view.findViewById(R.id.item_doctor_spec);
+            item_doctor_city = (TextView) view.findViewById(R.id.item_doctor_city);
         }
 
-        public TextView getItem_home_title() {
-            return item_home_title;
+        public TextView getItem_doctor_name() {
+            return item_doctor_name;
+        }
+
+        public TextView getItem_doctor_spec() {
+            return item_doctor_spec;
+        }
+
+        public TextView getItem_doctor_city() {
+            return item_doctor_city;
         }
     }
 
-    public DoctorAdapter(ArrayList<Doctor> doctors) {
-        this.listDataSet =  doctors;
-    }
+    public DoctorAdapter() {}
 
 
     @NonNull
@@ -53,12 +53,13 @@ public class DoctorAdapter extends RecyclerView.Adapter<DoctorAdapter.ViewHolder
 
     @Override
     public void onBindViewHolder(@NonNull DoctorAdapter.ViewHolder holder, int position) {
-         //holder.getItem_home_title().setText(listDataSet.get(position).name);
-        //holder.getItem_home_title().setText(listDataSet.get(position).name());
+         holder.getItem_doctor_name().setText("Théo Meunier");
+         holder.getItem_doctor_spec().setText("Généraliste");
+         holder.getItem_doctor_city().setText("Paris");
     }
 
     @Override
     public int getItemCount() {
-        return listDataSet.size();
+        return 5;
     }
 }

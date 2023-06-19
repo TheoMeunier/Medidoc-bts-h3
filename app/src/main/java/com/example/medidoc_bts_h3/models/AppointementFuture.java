@@ -4,10 +4,13 @@ import java.util.Date;
 
 public class AppointementFuture {
     public Integer id;
-    public Date date;
+    public String date;
 
     public String content;
+
     public Doctor doctor;
+
+    private String patient;
 
     public Integer getId() {
         return id;
@@ -17,11 +20,11 @@ public class AppointementFuture {
         this.id = id;
     }
 
-    public Date getDate() {
+    public String getDate() {
         return date;
     }
 
-    public void setDate(Date date) {
+    public void setDate(String date) {
         this.date = date;
     }
 
@@ -39,5 +42,13 @@ public class AppointementFuture {
 
     public void setDoctor(Doctor doctor) {
         this.doctor = doctor;
+    }
+
+    public String getPatient() {
+        return patient;
+    }
+
+    public void setPatient(String patient) {
+        this.patient = patient;
     }
 }

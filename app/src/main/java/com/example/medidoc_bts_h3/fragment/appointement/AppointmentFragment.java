@@ -33,6 +33,7 @@ public class AppointmentFragment extends Fragment {
 
         tabLayout = view.findViewById(R.id.tablelayout);
         viewpager = view.findViewById(R.id.viewpager);
+
         viewPagerAdapter = new ViewPagerAdapter(this.requireActivity());
         viewpager.setAdapter(viewPagerAdapter);
 

@@ -11,95 +11,39 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:layout_marginBottom="20dp">
 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@color/purple_500"
-            android:orientation="horizontal"
-            android:padding="7dp">
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/baseline_calendar_month_24"
-                app:tint="@color/white" />
-
-            <TextView
-                android:layout_width="539dp"
-                android:layout_height="match_parent"
-                android:layout_marginLeft="8dp"
-                android:text="Date"
-                android:textColor="@color/white"
-                android:textSize="20dp"
-                android:textStyle="bold" />
-        </LinearLayout>
-
-        <LinearLayout
+        <TextView
+            android:id="@+id/item_doctor_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="16dp">
+            android:padding="5dp"
+            android:text="Nom Prénom"
+            android:textStyle="bold"
+            android:textSize="15sp"
+            android:textColor="@color/purple_500"
+            />
 
-            <!-- Title, secondary and supporting text -->
-            <TextView
-                android:id="@+id/card_medical_doctor_name"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="medecin"
-                android:textAppearance="?attr/textAppearanceHeadline6" />
+        <TextView
+            android:id="@+id/item_doctor_spec"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingVertical="2dp"
+            android:paddingHorizontal="5dp"
+            android:text="Spécialité"
+            android:textSize="12sp"
+            />
 
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/card_medical_spciality"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:text="Spécialité"
-                    android:textAppearance="?attr/textAppearanceBody2"
-                    android:textColor="?android:attr/textColorSecondary"
-                    android:textSize="15dp"
-                    android:paddingLeft="5dp"
-                    android:layout_marginBottom="5dp"/>
-
-                <ImageView
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    android:layout_gravity="center"
-                    android:layout_marginStart="270dp"
-                    android:src="@drawable/baseline_chevron_right_24"
-                    android:contentDescription="icon" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginTop="20dp"
-                android:gravity="center"
-                tools:ignore="UseCompoundDrawables">
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/baseline_person_24"
-                    android:contentDescription="icon" />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Patient"
-                    android:textSize="15sp"
-                    android:layout_marginStart="5dp"/>
-            </LinearLayout>
-        </LinearLayout>
+        <TextView
+            android:id="@+id/item_doctor_city"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingVertical="2dp"
+            android:paddingHorizontal="5dp"
+            android:text="Ville"
+            android:textSize="12sp"
+            />
     </LinearLayout>
-
 </com.google.android.material.card.MaterialCardView>
 
