@@ -4,26 +4,19 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
-import com.example.medidoc_bts_h3.LoginActivity;
 import com.example.medidoc_bts_h3.R;
-import com.example.medidoc_bts_h3.RegisterActivity;
-import com.example.medidoc_bts_h3.SearchDoctorActivity;
-import com.example.medidoc_bts_h3.adapter.DoctorAdapter;
-import com.example.medidoc_bts_h3.models.Doctor;
+import com.example.medidoc_bts_h3.Activity.Doctor.SearchDoctorActivity;
 import com.example.medidoc_bts_h3.serivces.HttpClient;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-
-import java.util.ArrayList;
 
 /**
  * A simple {@link Fragment} subclass.

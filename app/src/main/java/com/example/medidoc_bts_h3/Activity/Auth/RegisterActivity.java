@@ -1,6 +1,5 @@
-package com.example.medidoc_bts_h3;
+package com.example.medidoc_bts_h3.Activity.Auth;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -12,6 +11,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.medidoc_bts_h3.R;
 import com.example.medidoc_bts_h3.serivces.HttpClient;
 
 import org.json.JSONException;

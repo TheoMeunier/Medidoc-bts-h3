@@ -9,6 +9,7 @@ public class Doctor {
     public String phone;
     public String address;
     public String postal_code;
+    public String city;
     public String description;
     public String rates;
 
@@ -74,6 +75,14 @@ public class Doctor {
 
     public void setPostal_code(String postal_code) {
         this.postal_code = postal_code;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
     }
 
     public String getDescription() {

@@ -13,16 +13,13 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.medidoc_bts_h3.LoginActivity;
+import com.example.medidoc_bts_h3.Activity.Auth.LoginActivity;
 import com.example.medidoc_bts_h3.R;
-import com.example.medidoc_bts_h3.RegisterActivity;
 import com.example.medidoc_bts_h3.serivces.HttpClient;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-
-import java.util.Objects;
 
 /**
  * A simple {@link Fragment} subclass.

@@ -3,14 +3,12 @@ package com.example.medidoc_bts_h3.fragment.profile;
 import android.content.Intent;
 import android.os.Bundle;
 
-import androidx.fragment.app.Fragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.medidoc_bts_h3.R;
-import com.example.medidoc_bts_h3.RegisterActivity;
+import com.example.medidoc_bts_h3.Activity.Auth.RegisterActivity;
 import com.example.medidoc_bts_h3.serivces.HttpClient;
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 

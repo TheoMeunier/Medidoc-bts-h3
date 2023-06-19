@@ -1,4 +1,4 @@
-package com.example.medidoc_bts_h3;
+package com.example.medidoc_bts_h3.Activity.Auth;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -12,6 +12,8 @@ import android.widget.Toast;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import com.example.medidoc_bts_h3.MainActivity;
+import com.example.medidoc_bts_h3.R;
 import com.example.medidoc_bts_h3.serivces.HttpClient;
 import com.example.medidoc_bts_h3.serivces.LocalStorage;
 
