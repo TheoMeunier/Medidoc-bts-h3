@@ -6,10 +6,9 @@
     tools:context=".fragment.appointement.AppointementFutureFragment">
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerViewRdv"
+        android:id="@+id/recyclerViewRdvFuture"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
     </androidx.recyclerview.widget.RecyclerView>
-
 </FrameLayout>

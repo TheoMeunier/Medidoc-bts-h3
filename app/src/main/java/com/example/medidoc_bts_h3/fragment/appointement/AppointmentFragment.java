@@ -21,8 +21,6 @@ public class AppointmentFragment extends Fragment {
     ViewPager2 viewpager;
     ViewPagerAdapter viewPagerAdapter;
 
-    public AppointmentFragment() {
-    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -31,30 +29,26 @@ public class AppointmentFragment extends Fragment {
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_appointment, container, false);
+        View view = inflater.inflate(R.layout.fragment_appointment, container, false );
 
         tabLayout = view.findViewById(R.id.tablelayout);
         viewpager = view.findViewById(R.id.viewpager);
         viewPagerAdapter = new ViewPagerAdapter(this.requireActivity());
+        viewpager.setAdapter(viewPagerAdapter);
 
-        System.out.println("hello");
         tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
 
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
                 viewpager.setCurrentItem(tab.getPosition());
-                System.out.println(tab);
-                System.out.println("hello1");
             }
 
             @Override
             public void onTabUnselected(TabLayout.Tab tab) {
-                System.out.println("hello2");
             }
 
             @Override
             public void onTabReselected(TabLayout.Tab tab) {
-                System.out.println("hello3");
             }
 
         });

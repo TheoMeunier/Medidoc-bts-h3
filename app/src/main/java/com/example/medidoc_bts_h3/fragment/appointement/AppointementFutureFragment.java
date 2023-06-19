@@ -28,7 +28,7 @@ import java.util.List;
 public class AppointementFutureFragment extends Fragment {
 
     ArrayList<AppointementFuture> AppointementFuture = new ArrayList<>();
-    RecyclerView appontementFuturFragement;
+    //RecyclerView appointmentFutureFragment;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -40,7 +40,10 @@ public class AppointementFutureFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_appointement_future, container, false);
 
-        getAllAssignmentFuture(view);
+        //getAllAssignmentFuture(view);
+
+        RecyclerView appointmentFutureFragment = view.findViewById(R.id.recyclerViewRdvFuture);
+        appointmentFutureFragment.setAdapter(new AppointementFuturAdapter());
 
         return view;
     }
@@ -70,8 +73,8 @@ public class AppointementFutureFragment extends Fragment {
                         e.printStackTrace();
                     }
 
-                    appontementFuturFragement = view.findViewById(R.id.recyclerViewRdv);
-                    appontementFuturFragement.setAdapter(new AppointementFuturAdapter(AppointementFuture));
+                    //appointmentFutureFragment = view.findViewById(R.id.recyclerViewRdv);
+                    //appointmentFutureFragment.setAdapter(new AppointementFuturAdapter(AppointementFuture));
                 } else {
                     Toast.makeText(getActivity(), "Error", Toast.LENGTH_SHORT).show();
                 }
